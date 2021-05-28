@@ -10,7 +10,7 @@ PlayerSettings:
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 4
   targetDevice: 2
-  useOnDemandResources: 0
+  useOnDemandResources: 1
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Asset Bundle Testing
@@ -145,7 +145,10 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.AssetBundleTesting
+    Standalone: com.DefaultCompany.AssetBundleTesting
+    iPhone: com.DefaultCompany.AssetBundleTesting
   buildNumber:
     Standalone: 0
     iPhone: 0
