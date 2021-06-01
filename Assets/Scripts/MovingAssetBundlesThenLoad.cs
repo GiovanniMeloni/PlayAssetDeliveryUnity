@@ -6,23 +6,26 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.Networking;
 using System;
 
-public class SyncLoad : MonoBehaviour
+public class MovingAssetBundlesThenLoad : MonoBehaviour
 {
     public string assetName = "Cube";
     public string bundleName = "testbundle";
 
     public void Load()
     {
-        string path = Path.Combine(Application.streamingAssetsPath, bundleName);
+        string pathCopyFrom = Path.Combine(Application.streamingAssetsPath, bundleName);
+        string pathCopyTo = Path.Combine(Application.persistentDataPath, "AssetBundles", bundleName + ".unity3d");
 
-        AssetBundle assetBundle = AssetBundle.LoadFromFile(path);
+        File.Copy(pathCopyFrom, pathCopyTo);
 
+        AssetBundle assetBundle = AssetBundle.LoadFromFile(pathCopyTo);
 
         if (assetBundle == null)
         {
             Debug.LogError("Failed to load");
             return;
         }
+
 
         GameObject asset = assetBundle.LoadAsset<GameObject>(assetName);
         Instantiate(asset);
